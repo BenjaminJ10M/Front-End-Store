@@ -1,0 +1,306 @@
+/*Custom properties(pseudoselectores)*/
+
+:root {
+    --morado: #9C27B0;
+    /*primario*/
+    --moradoOscuro: #89119D;
+    --amarillo: #FFCE00;
+    /*secundario*/
+    --amarilloOscuro:rgb(233, 187, 2);
+    --blanco: #FFF;
+    --negro: #000;
+
+    --fuentePrincipal: 'Staatliches', sans-serif;
+}
+
+/*Serie de globales de paulirish*/
+
+html {
+    box-sizing: border-box;
+    /*Ajusta los bloques para que padding y margin no generen cambios de espacio*/
+    font-size: 62.5%;
+    /*Se define esto para que cada rem valga 10px*/
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+/*Mis globales*/
+
+body {
+    background-color: var(--morado);
+    /*Color de fondo de la página*/
+    font-size: 1.8rem;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+a {
+    text-decoration: none;
+    /*quita el sobrayado a los enlaces*/
+}
+
+img {
+    width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+    /*Para centrar el contenedor*/
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    color: var(--amarillo);
+    font-family: var(--fuentePrincipal);
+}
+
+/*Tamaños de letra de los headings*/
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+/*Header*/
+
+.header {
+    display: flex;
+    justify-content: center;
+    /*Centrar horizontalmente*/
+
+}
+
+.header__logo {
+    margin: 3rem 0;
+}
+
+/*Navegacion*/
+.navegacion {
+    background-color: var(--moradoOscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    /*separa cada uno de los elementos en dos rem*/
+}
+
+.navegacion__enlace {
+    font-family: var(--fuentePrincipal);
+    /*Esta fuente tambien hace que se vuelva mayuscula la letra*/
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 3rem;
+}
+
+.navegacion__enlace:hover,
+.navegacion__enlace--activo {
+    color: var(--amarillo);
+}
+
+
+/*Grid*/
+
+.grid {
+    /*Grid general*/
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /*Divide los bloques en dos columnas*/
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+
+    /*ajuste optimo de los bloques para pc*/
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        /*divide los bloques en 3 columnas*/
+    }
+}
+
+
+/*Productos*/
+
+.producto {
+    background-color: var(--moradoOscuro);
+    padding: 1rem;
+    /*Ajusta la imagen y la manda mas adentro*/
+}
+
+.producto__informacion {}
+
+
+.producto__nombre {
+    font-size: 4rem;
+}
+
+.producto__precio {
+    font-size: 2.8rem;
+    color: var(--amarillo);
+}
+
+.producto__nombre,
+.producto__precio {
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
+/*Footer*/
+
+.footer {
+    background-color: var(--moradoOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer__texto {
+    font-family: var(--fuentePrincipal);
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+/*Graficos*/
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    /*para que no se repita y se vea raro*/
+    background-size: cover;
+    /*Toma el espacio disponible que falta*/
+    grid-column: 1 / 3;
+}
+
+.grafico--camisas {
+    grid-row: 2 / 3;
+    background-image: url(../img/grafico1.jpg);
+
+}
+
+.grafico--node {
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8 / 9;
+
+}
+
+@media (min-width: 768px) {
+    .grafico--node {
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+    }
+}
+
+/*Nosotros*/
+.nosotros{
+    display: grid;
+    grid-template-rows: repeat(2,auto);
+}
+
+@media (min-width: 768px) {
+
+    .nosotros {
+        grid-template-columns: 50% 50%;
+        column-gap: 2rem;
+    }
+}
+
+.nosotros__contenido {
+    font-size: 1.8rem;
+
+}
+
+.nosotros__imagen {
+    grid-row: 1 / 2;
+}
+
+@media (min-width: 768px) {
+    .nosotros__imagen{
+        grid-column: 2 / 3;
+    }
+}
+
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .bloques{
+        grid-template-columns: repeat(4, 1fr);
+    }   
+}
+
+.bloque{
+    text-align: center;
+}
+
+.bloque__titulo{
+    margin: 0;
+}
+
+/*Pagina de producto*/
+
+.camisa{
+    padding: 2rem; /** Para que todo el contenido se despegue un poco en la vista móvil **/
+}
+@media (min-width: 768px) {
+    .camisa{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+.formulario{
+    display: grid;
+    grid-template-columns: repeat(2. 1fr);
+    gap: 2rem;
+}
+
+.formulario__campo{
+    border: 1rem solid var(--moradoOscuro);
+    background-color: transparent;
+    font-size: 2rem;
+    color: var(--blanco);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    appearance: none;
+    min-width: 50%; /** Aquí sucede la magia de los input **/
+}
+
+.formulario__submit{
+    background-color: var(--amarillo);
+    border: none;
+    padding: 2rem;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    transition: background-color .3s ease;
+    grid-column: 1 / 3;
+}
+
+.formulario__submit:hover{
+    cursor: pointer;
+    background-color: var(--amarilloOscuro);
+}
+
+::placeholder { /*para que Cantidad aparezca blanco*/
+    color: var(--blanco);
+}
